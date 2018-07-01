@@ -1,5 +1,9 @@
 package practice.string;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by sharanya.p on 6/22/2018.
  */
@@ -41,6 +45,8 @@ public class Anagram {
             if (arr[i] != 0)
                 return false;
         }
+        
+
         return true;
     }
 
