@@ -2,17 +2,26 @@ package tfsc.test;
 
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 /**
  * Created by sharanya.p on 6/27/2018.
  */
 public class JSONTest {
     public static void main(String[] args) {
-        JSONObject jso = new JSONObject("{\"data\":null,\"status\":\"failure\",\"message\":\"EXCEPTION_CODE_USER_ALREADY_EXISTS\",\"code\":\"EXCEPTION_CODE_USER_ALREADY_EXISTS\"}");
-        String status = jso.get("status").toString();
-
-        String data = jso.get("data").toString();
-
-        jso = new JSONObject(data);
+        try {
+            String json = "{\"class\":\"data.AdminUIEntityData\",\"entityAttributes\":{\"firstName\":\"Jor\",\"lastName\":\"Kunal\",\"role\":\"8ac12ba74f69b48b014f6de63bf30000\",\"isRoot\":0,\"addedEpoch\":0,\"emailId\":\"Jor.Kunal@247-inc.com\",\"id\":\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\",\"username\":\"Jor.Kunal\",\"tags\":\"8ac12ba74f69b48b014f6de8b5de0020\",\"skills\":\"[ {\\\"capitalone-balance-transfer,capitalone-amSkill1\\\": \\\"LOW\\\"},{\\\"capitalone-balance-transfer,capitalone-amSkill2\\\": \\\"HIGH\\\"}]\"},\"entityBaseData\":{\"accountId\":\"capitalone-account-default\",\"class\":\"data.EntityBaseData\",\"clientId\":\"nemo-client-capitalone\",\"entityDisplayName\":\"Jor.Kunal\",\"entityId\":\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\",\"entityType\":\"clientUser\"}}";
+            json = "{\"class\":\"data.AdminUIEntityData\",\"entityAttributes\":{\"firstName\":\"Jor\",\"lastName\":\"Kunal\",\"role\":\"8ac12ba74f69b48b014f6de63bf30000\",\"isRoot\":0,\"addedEpoch\":0,\"emailId\":\"Jor.Kunal@247-inc.com\",\"id\":\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\",\"username\":\"Jor.Kunal\",\"tags\":\"8ac12ba74f69b48b014f6de8b5de0020\",\"skills\":\"[ {\\\"capitalone-balance-transfer,capitalone-amSkill1\\\": \\\"LOW\\\"},{\\\"capitalone-balance-transfer,capitalone-amSkill2\\\": \\\"HIGH\\\"}]\"},\"entityBaseData\":{\"accountId\":\"capitalone-account-default\",\"class\":\"data.EntityBaseData\",\"clientId\":\"nemo-client-capitalone\",\"entityDisplayName\":\"Jor.Kunal\",\"entityId\":\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\",\"entityType\":\"clientUser\"}}";
+            // {"class":"data.AdminUIEntityData","entityAttributes":{"firstName":"Jor","lastName":"Kunal","role":"8ac12ba74f69b48b014f6de63bf30000","isRoot":0,"addedEpoch":0,"emailId":"Jor.Kunal@247-inc.com","id":"b93a7e6b-7d2f-470a-ae68-673e12dea2d0","username":"Jor.Kunal","tags":"8ac12ba74f69b48b014f6de8b5de0020","skills":"[ {\"capitalone-balance-transfer,capitalone-amSkill1\": \"LOW\"},{\"capitalone-balance-transfer,capitalone-amSkill2\": \"HIGH\"}]"},"entityBaseData":{"accountId":"capitalone-account-default","class":"data.EntityBaseData","clientId":"nemo-client-capitalone","entityDisplayName":"Jor.Kunal","entityId":"b93a7e6b-7d2f-470a-ae68-673e12dea2d0","entityType":"clientUser"}}
+            String servceJson = "{\"class\":\"data.ServiceResponse\",\"data\":{\"entity\":\"{\\\"class\\\":\\\"data.AdminUIEntityData\\\",\\\"entityAttributes\\\":{\\\"firstName\\\":\\\"247\\\",\\\"lastName\\\":\\\"AGENT1\\\",\\\"role\\\":\\\"AJUBA_REPORTS_CONSUMER-nemo-client-capitalone\\\",\\\"isRoot\\\":0,\\\"addedEpoch\\\":0,\\\"emailId\\\":\\\"sunil.dev@247-inc.com\\\",\\\"id\\\":\\\"capitalone-nemo-user-247agent1\\\",\\\"username\\\":\\\"247agent1@capitalone\\\"},\\\"entityBaseData\\\":{\\\"accountId\\\":\\\"capitalone-account-default\\\",\\\"class\\\":\\\"data.EntityBaseData\\\",\\\"clientId\\\":\\\"nemo-client-capitalone\\\",\\\"entityDisplayName\\\":\\\"247agent1\\\",\\\"entityId\\\":\\\"capitalone-nemo-user-247agent1\\\",\\\"entityType\\\":\\\"clientUser\\\"}}\"},\"errorDescription\":null,\"errorMessage\":null,\"status\":\"SUCCESS\"}";
+            servceJson = "{\"class\":\"data.ServiceResponse\",\"data\":{\"entity\":\"{\\\"class\\\":\\\"data.AdminUIEntityData\\\",\\\"entityAttributes\\\":{\\\"firstName\\\":\\\"Jor\\\",\\\"lastName\\\":\\\"Kunal\\\",\\\"role\\\":\\\"8ac12ba74f69b48b014f6de63bf30000\\\",\\\"isRoot\\\":0,\\\"addedEpoch\\\":0,\\\"emailId\\\":\\\"Jor.Kunal@247-inc.com\\\",\\\"id\\\":\\\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\\\",\\\"username\\\":\\\"Jor.Kunal\\\",\\\"tags\\\":\\\"8ac12ba74f69b48b014f6de8b5de0020\\\",\\\"skills\\\":\\\"[ {\\\\\\\"capitalone-balance-transfer,capitalone-amSkill1\\\\\\\": \\\\\\\"LOW\\\\\\\"},{\\\\\\\"capitalone-balance-transfer,capitalone-amSkill2\\\\\\\": \\\\\\\"HIGH\\\\\\\"}]\\\"},\\\"entityBaseData\\\":{\\\"accountId\\\":\\\"capitalone-account-default\\\",\\\"class\\\":\\\"data.EntityBaseData\\\",\\\"clientId\\\":\\\"nemo-client-capitalone\\\",\\\"entityDisplayName\\\":\\\"Jor.Kunal\\\",\\\"entityId\\\":\\\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\\\",\\\"entityType\\\":\\\"clientUser\\\"}}\"},\"errorDescription\":null,\"errorMessage\":null,\"status\":\"SUCCESS\"}";
+            //{"class":"data.ServiceResponse","data":{"entity":"{\"class\":\"data.AdminUIEntityData\",\"entityAttributes\":{\"firstName\":\"Jor\",\"lastName\":\"Kunal\",\"role\":\"8ac12ba74f69b48b014f6de63bf30000\",\"isRoot\":0,\"addedEpoch\":0,\"emailId\":\"Jor.Kunal@247-inc.com\",\"id\":\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\",\"username\":\"Jor.Kunal\",\"tags\":\"8ac12ba74f69b48b014f6de8b5de0020\",\"skills\":\"[ {\\\"capitalone-balance-transfer,capitalone-amSkill1\\\": \\\"LOW\\\"},{\\\"capitalone-balance-transfer,capitalone-amSkill2\\\": \\\"HIGH\\\"}]\"},\"entityBaseData\":{\"accountId\":\"capitalone-account-default\",\"class\":\"data.EntityBaseData\",\"clientId\":\"nemo-client-capitalone\",\"entityDisplayName\":\"Jor.Kunal\",\"entityId\":\"b93a7e6b-7d2f-470a-ae68-673e12dea2d0\",\"entityType\":\"clientUser\"}}"},"errorDescription":null,"errorMessage":null,"status":"SUCCESS"}
+            //AdminUIEntityData adminUIEntityData = JsonUtils.convertFromJson(json, AdminUIEntityData.class);
+            ServiceResponse status = JsonUtils.convertFromJson(servceJson, ServiceResponse.class);
+            System.out.println(status.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

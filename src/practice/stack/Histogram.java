@@ -58,7 +58,7 @@ public class Histogram {
             h[i] = hItem;
         }
 */
-        int[] h = {1,2,3,4,5};
+        int[] h = {6, 2, 5, 4, 5, 1, 6};
         long result = largestRectangle(h);
         System.out.println(result);
         /*bufferedWriter.write(String.valueOf(result));

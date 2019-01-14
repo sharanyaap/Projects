@@ -1,6 +1,4 @@
-package interviewbit;
-
-import example.model.Node;
+package practice.queue;
 
 import java.util.HashMap;
 
