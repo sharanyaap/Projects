@@ -34,6 +34,24 @@ public class NQueenProblem {
         return true;
     }
 
+
+    public boolean solve(int board[][], int col) {
+        if (col >= N) {
+            return true;
+        }
+        for (int i = 0; i < N; i++) {
+            if (isSafe(board, i, col)) {
+                board[i][col] = 1;
+                if (solve(board, col + 1)) {
+                    return true;
+                }
+                board[i][col] = 0;
+            }
+        }
+        return false;
+    }
+
+
     boolean solveNQUtil(int board[][], int col) {
         if (col >= N) {
             return true;
@@ -59,8 +77,7 @@ public class NQueenProblem {
     }
 
     void printSolution(int board[][]) {
-        for (int i = 0; i < N; i++)
-        {
+        for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++)
                 System.out.print(" " + board[i][j]
                         + " ");

@@ -1,8 +1,5 @@
 package practice.tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Created by sharanya.p on 9/14/2018.
  */

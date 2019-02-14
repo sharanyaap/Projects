@@ -27,23 +27,23 @@ public class MorrisTraversal {
     }
 
     private void MorrisTraversal(Node node) {
-        Node n = node;
-        while (n != null) {
-            if (n.left == null) {
-                System.out.println(n.data + "  ");
-                n = n.right;
+        Node current = node;
+        while (current != null) {
+            if (current.left == null) {
+                System.out.println(current.data);
+                current = current.right;
             } else {
-                Node temp = n.left;
-                while (temp.right != null && temp.right != n) {
-                    temp = temp.right;
+                Node lr = current.left;
+                while (lr.right != null && lr.right != current) {
+                    lr = lr.right;
                 }
-                if (temp.right == null) {
-                    temp.right = n;
-                    n = n.left;
+                if (lr.right == null) {
+                    lr.right = current;
+                    current = current.left;
                 } else {
-                    temp.right = null;
-                    System.out.println(n.data + "  ");
-                    n = n.right;
+                    lr.right = null;
+                    System.out.println(current.data);
+                    current = current.right;
                 }
             }
         }

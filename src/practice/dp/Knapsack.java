@@ -2,6 +2,7 @@ package practice.dp;
 
 /**
  * Created by sharanya.p on 7/25/2018.
+ * https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
  */
 public class Knapsack {
 
@@ -20,19 +21,22 @@ public class Knapsack {
     }
 
     static int knapSack(int W, int wt[], int val[], int n) {
-        int k[][] = new int[n + 1][W + 1];
-        for (int i = 0; i <= n; i++) {
-            for (int w = 0; w <= W; w++) {
+        int i, w;
+        int K[][] = new int[n + 1][W + 1];
+
+        // Build table K[][] in bottom up manner
+        for (i = 0; i <= n; i++) {
+            for (w = 0; w <= W; w++) {
                 if (i == 0 || w == 0)
-                    k[i][w] = 0;
-                else if (wt[i - 1] <= w) {
-                    k[i][w] = max(val[i - 1] + k[i - 1][w - wt[i - 1]], k[i - 1][w]);
-                } else {
-                    k[i][w] = k[i - 1][w];
-                }
+                    K[i][w] = 0;
+                else if (wt[i - 1] <= w)
+                    K[i][w] = max(val[i - 1] + K[i - 1][w - wt[i - 1]], K[i - 1][w]);
+                else
+                    K[i][w] = K[i - 1][w];
             }
         }
-        return k[n][W];
+
+        return K[n][W];
     }
 
     // Returns the maximum value with knapsack
@@ -41,10 +45,10 @@ public class Knapsack {
                                          int[] val, int[] wt) {
         int dp[] = new int[W + 1];
         dp[0] = 0;
-        for (int i = 0; i <= W; i++) {
+        for (int w = 0; w <= W; w++) {
             for (int j = 0; j < n; j++) {
-                if (wt[j] <= i)
-                    dp[i] = Math.max(dp[i], dp[i - wt[j]] + val[j]);
+                if (wt[j] <= w)
+                    dp[w] = Math.max(dp[w], dp[w - wt[j]] + val[j]);
             }
         }
         return dp[W];

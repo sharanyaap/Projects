@@ -20,15 +20,42 @@ public class NutsNBolts {
 
     }
 
+    public void matchPairs(char nuts[], char bolts[], int low, int high) {
+        if (low < high) {
+            int pivot = partition(nuts, low, high, bolts[high]);
+            partition(bolts, low, high, pivot);
+            matchPairs(nuts, bolts, low, pivot - 1);
+            matchPairs(nuts, bolts, pivot + 1, high);
+        }
+    }
+
+    public int partition(char in[], int low, int high, int pivot) {
+        int i = low - 1;
+        char temp;
+        for (int j = low; j < high; j++) {
+            if (in[j] < in[pivot]) {
+                i++;
+                temp = in[i];
+                in[i] = in[j];
+                in[j] = temp;
+            }
+        }
+        temp = in[i + 1];
+        in[pivot] = in[i + 1];
+        in[i + 1] = temp;
+        return i + 1;
+    }
+
+
     // Method to print the array
     private static void printArray(char[] arr) {
-        for (char ch : arr){
+        for (char ch : arr) {
             System.out.print(ch + " ");
         }
         System.out.print("n");
     }
 
-    void matchPairs(char[] nuts, char[] bolts, int low, int high) {
+    /*void matchPairs(char[] nuts, char[] bolts, int low, int high) {
         if (low < high) {
             int pivot = partition(nuts, low, high, bolts[high]);
             partition(bolts, low, high, nuts[pivot]);
@@ -58,7 +85,7 @@ public class NutsNBolts {
         nuts[i]=nuts[high];
         nuts[high]= temp2;
         return i;
-    }
+    }*/
 
 
 }

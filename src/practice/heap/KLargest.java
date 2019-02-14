@@ -35,7 +35,7 @@ class BinHeap {
     }
 
     int getRight(int i) {
-        int r = i * 2 + 1;
+        int r = i * 2 + 2;
         if (r < size) {
             return r;
         }
